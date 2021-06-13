@@ -120,5 +120,8 @@
       }
     }
   },
-  "defaultProject": "CalorieCalculator"
+  "defaultProject": "CalorieCalculator",
+  "cli": {
+    "analytics": false
+  }
 }
