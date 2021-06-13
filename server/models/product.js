@@ -27,4 +27,20 @@ function loadProduct(req, res, next) {
     }
 }
 
-module.exports = { Product, loadProduct };
+function addProduct(name, category, calories, proteins, carbohydrates, fats) {
+    const newRecord = new Product({
+        name: name,
+        category: category,
+        calories: calories,
+        proteins: proteins,
+        carbohydrates: carbohydrates,
+        fats: fats,
+    });
+    newRecord.save((e) => {
+        if (e) console.error(e);
+        else console.log("new record added successfully");
+    });
+}
+//addProduct("jajeczniczka", "obiadek", 4312, 43, 32, 2);
+
+module.exports = { Product, loadProduct, addProduct };
