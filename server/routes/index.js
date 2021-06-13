@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const { Product } = require("../models/product");
+const { Product, addProduct } = require("../models/product");
 
 router.get("/", (req, res) => {
     res.send("<h1>GR GR GR</h1>");
@@ -14,6 +14,17 @@ router.get("/products", (req, res) => {
             res.send(products);
         }
     });
+});
+
+router.post("/products", (req, res) => {
+    addProduct(
+        req.body.name,
+        req.body.category,
+        req.body.calories,
+        req.body.proteins,
+        req.body.carbohydrates,
+        req.body.fats
+    );
 });
 
 router.get("/products/:name", (req, res) => {

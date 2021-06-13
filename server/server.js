@@ -15,6 +15,12 @@ db.once("open", function () {
 var express = require("express");
 var app = express();
 const router = require("./routes");
+const logger = require("morgan");
+const cors = require("cors");
+
+app.use(logger("dev"));
+app.use(cors());
+app.use(express.json());
 
 app.use("/", router);
 
