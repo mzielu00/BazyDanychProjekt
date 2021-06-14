@@ -1,6 +1,5 @@
 <h2>Dodaj nowy produkt!</h2>
 <div [hidden]="submitted">
-<<<<<<< HEAD
 <form (ngSubmit) = "saveProduct()">
     <div class="form-group">
         <label for="name">Nazwa:</label>
@@ -28,53 +27,6 @@
     </div>
     <button type="submit" class="btn btn-primary">Dodaj produkt</button>
 </form>
-=======
-    <form (ngSubmit)="saveProduct()">
-        <div class="form-group">
-            <label for="name">Nazwa:</label>
-            <input type="text" class="form-control" [(ngModel)]="product.name" name="name">
-        </div>
-        <!-- <ng-container *ngIf="name.invalid && name.touched">
-        <p><b>Wpisz nazwę produktu!</b></p>
-    </ng-container> -->
-        <div class="form-group">
-            <label for="category">Kategoria:</label>
-            <input type="text" class="form-control" [(ngModel)]="product.category" name="category">
-        </div>
-        <!-- <ng-container *ngIf="category.invalid && category.touched">
-        <p><b>Wpisz nazwę kategorii!</b></p>
-    </ng-container> -->
-        <div class="form-group">
-            <label for="calories">Kalorie:</label>
-            <input type="number" class="form-control" [(ngModel)]="product.calories" name="calories">
-        </div>
-        <!-- <ng-container *ngIf="calories.invalid && calories.touched">
-        <p><b>Wpisz ilość kalorii!</b></p>
-    </ng-container> -->
-        <div class="form-group">
-            <label for="proteins">Białka (Proteiny):</label>
-            <input type="number" class="form-control" required [(ngModel)]="product.proteins" name="proteins">
-        </div>
-        <!-- <ng-container *ngIf="proteins.invalid && proteins.touched">
-        <p><b>Wpisz ilość białek!</b></p>
-    </ng-container> -->
-        <div class="form-group">
-            <label for="carbohydrates">Węglowodany:</label>
-            <input type="number" class="form-control" [(ngModel)]="product.carbohydrates" name="carbohydrates">
-        </div>
-        <!-- <ng-container *ngIf="carbohydrates.invalid && carbohydrates.touched">
-        <p><b>Wpisz ilość węglowodanów!</b></p>
-    </ng-container> -->
-        <div class="form-group">
-            <label for="fats">Tłuszcz:</label>
-            <input type="number" class="form-control" [(ngModel)]="product.fats" name="fats">
-        </div>
-        <!-- <ng-container *ngIf="fats.invalid && fats.touched">
-        <p><b>Wpisz zawartość tłuszczu!</b></p>
-    </ng-container> -->
-        <button type="submit" class="btn btn-primary">Dodaj produkt</button>
-    </form>
->>>>>>> ae61b51a7a909044f7dd29afd6ee59bd002d8492
 </div>
 
 <div [hidden]="!submitted">

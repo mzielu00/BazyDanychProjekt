@@ -19,8 +19,6 @@ export class ProductService {
   }
 
   addProduct(data: any): Observable<any> {
-    /*     const headers = { 'content-type': 'text/plain' };
-    return this.http.post(Url, data, { headers: headers }); */
     return this.http.post(Url, data);
   }
 
@@ -37,6 +35,6 @@ export class ProductService {
   }
 
   findProductByName(name: any): Observable<any> {
-    return this.http.get(`${Url}?name=${name}`);
+    return this.http.get(`${Url}/?name=${name}`);
   }
 }
