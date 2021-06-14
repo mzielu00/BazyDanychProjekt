@@ -19,7 +19,7 @@ export class ProductListComponent implements OnInit {
   name = '';
   caloriesCounter: any = 0;
   proteinsCounter: any = 0;
-  carbogydratesCounter: any = 0;
+  carbohydratesCounter: any = 0;
   fatsCounter: any = 0;
 
   nameTerm: string;
@@ -93,13 +93,13 @@ export class ProductListComponent implements OnInit {
   updateCounters(): void {
     this.caloriesCounter = 0;
     this.proteinsCounter = 0;
-    this.carbogydratesCounter = 0;
+    this.carbohydratesCounter = 0;
     this.fatsCounter = 0;
 
     for (var p of this.productList) {
       this.caloriesCounter += p.calories;
       this.proteinsCounter += p.proteins;
-      this.carbogydratesCounter += p.carbohydrates;
+      this.carbohydratesCounter += p.carbohydrates;
       this.fatsCounter += p.fats;
     }
   }
@@ -111,4 +111,12 @@ export class ProductListComponent implements OnInit {
 
     this.updateCounters();
   }
+
+  resetCounter() {
+    this.caloriesCounter = 0;
+    this.proteinsCounter = 0;
+    this.carbohydratesCounter = 0;
+    this.fatsCounter = 0;
+  }
+
 }
