@@ -3,6 +3,7 @@ import { ProductService } from 'src/app/services/product.service';
 import { map } from 'rxjs/operators';
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
+import { Product } from 'src/app/Product';
 
 @Component({
   selector: 'app-product-list',
@@ -13,10 +14,15 @@ import { NgModule } from '@angular/core';
 export class ProductListComponent implements OnInit {
 
   products: any;
+  productList: Array<Product>;
   dataSource: any;
   currProduct = null;
   currentIdx = -1;
   name = '';
+  caloriesCounter: any = 0;
+  proteinsCounter: any = 0;
+  carbogydratesCounter: any = 0;
+  fatsCounter: any = 0;
 
   nameTerm: string;
   categoryTerm: string;
@@ -25,6 +31,7 @@ export class ProductListComponent implements OnInit {
 
   ngOnInit(): void {
     this.showProducts();
+    this.productList = null;
   }
 
   showProducts(): void{
@@ -49,6 +56,8 @@ export class ProductListComponent implements OnInit {
   setProduct(product: any, idx: number): void{
     this.currProduct = product;
     this.currentIdx = idx;
+    this.productList.push(product);
+    this.updateCounters();
   }
 
   removeAll(): void{
@@ -74,7 +83,6 @@ export class ProductListComponent implements OnInit {
     );
   }
   findProduct(): void {
-    console.log("nazwa ->",this.name);
     this.productService.findProductByName(this.name).subscribe(
       data => {
         this.products = data;
@@ -85,5 +93,13 @@ export class ProductListComponent implements OnInit {
       }
     );
   }
-
+  updateCounters(): void{
+    for(var p of this.productList)
+    {
+      this.caloriesCounter += p.calories;
+      this.proteinsCounter += p.proteins;
+      this.carbogydratesCounter += p.carbohydrates;
+      this.fatsCounter += p.fats;
+    }
+  }
 }

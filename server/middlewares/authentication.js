@@ -2,7 +2,6 @@ const jwt = require("jsonwebtoken");
 const { User } = require("../models/user");
 
 checkDuplicateUsername = (req, res, next) => {
-    console.log("checking for duplicates");
     User.findOne({
         username: req.body.username,
     }).exec((err, user) => {

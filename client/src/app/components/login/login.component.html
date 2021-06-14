@@ -1,22 +1,40 @@
 <div class="login-section">
 
-    <form>
-    
+    <form *ngIf="!isLoggedIn" name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
+
         <div class="form-group">
-            <label class="label-style">Adres e-mail</label>
+            <label for="username" class="label-style">Login</label>
             <br>
-            <input type="email" class="form-control" formControlName="email" placeholder="Wprowadź e-mail"
-                style="width: 300px;"/>
+            <input type="text" class="form-control" name="username" [(ngModel)]="form.username" required
+                #username="ngModel" placeholder="Wprowadź login" style="width: 300px;" />
+        </div>
+        <div class="alert alert-danger" role="alert" *ngIf="username.errors && f.submitted">
+            Podaj login!
         </div>
         <br>
         <div class="form-group">
-            <label class="label-style">Hasło</label>
+            <label for="password" class="label-style">Hasło</label>
             <br>
-            <input type="password" formControlName="password" class="form-control" placeholder="Wprowadź hasło"
-                style="width: 300px;"/>
+            <input type="password" class="form-control" name="password" [(ngModel)]="form.password" required
+                minlength="6" #password="ngModel" placeholder="Wprowadź hasło" style="width: 300px;" />
+        </div>
+        <div class="alert alert-danger" role="alert" *ngIf="password.errors && f.submitted">
+            <div *ngIf="password.errors.required">Podaj hasło!</div>
+            <div *ngIf="password.errors.minlength">
+                Hasło musi być dłuższe niż 6 znaków
+            </div>
         </div>
         <br>
-        <button type="submit" class="btn btn-light">Zaloguj się</button>
+        <div class="form-group">
+            <button class="btn btn-primary btn-block">
+                Zaloguj się
+            </button>
+        </div>
+        <div class="form-group">
+            <div class="alert alert-danger" role="alert" *ngIf="f.submitted && isLoginFailed">
+                Błąd logowania: {{ errorMessage }}
+            </div>
+        </div>
 
     </form>
 

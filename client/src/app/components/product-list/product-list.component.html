@@ -1,3 +1,4 @@
+<<<<<<< HEAD
   <!-- <div class="col-md-8">
 
     <div class="input-group mb-3">
@@ -20,6 +21,9 @@
 <div class="filter-section">
 
   <h5>Wyszukiwanie produktów</h5>
+=======
+<div class="list row">
+>>>>>>> f1ec80f6dd12d6db17054a6d18cd2a75e0d40198
 
   <div style="padding-left: 20px;" class="form-group">
     <input type="text" class="form-control" placeholder="Według nazwy"
@@ -75,6 +79,35 @@
           <p class="card-text">węglowodany: {{ currProduct.carbohydrates }}</p>
           <br>
           <a href="#" class="btn btn-danger">Usuń z listy</a>
+          <br><br>
+          <a href="#" class="btn btn-success">Dodaj do kalkulatora</a>
+          <br><br>
+          <a href="#" class="btn btn-info">Dodaj do Setu</a>
+
+        </div>
+        
+      </div>
+
+    </div>    
+  
+  </div>
+  <div style="padding-left: 10px;" class="col-md-6">
+                         
+    <div *ngIf="currProduct">
+
+      <div class="card text-white bg-dark mb-3" style="max-width: 18rem;">
+
+        <div class="card-header">Kalkulator</div>
+
+        <div style="text-align: center;" class="card-body">
+
+          <h5 class="card-title">Produkt: {{ currProduct.name }}</h5>
+          <br>
+          <p class="card-text">ilość kalorii: {{ caloriesCounter }}</p>
+          <p class="card-text">białka: {{ currProduct.proteins }}</p>
+          <p class="card-text">tłuszcze: {{ currProduct.fats }}</p>
+          <p class="card-text">węglowodany: {{ currProduct.carbohydrates }}</p>
+          <br>
 
         </div>
         
