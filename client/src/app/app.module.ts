@@ -1,8 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
-import{ FormsModule } from '@angular/forms';
-import {ReactiveFormsModule} from '@angular/forms';
+import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -13,6 +13,9 @@ import { ProductListComponent } from './components/product-list/product-list.com
 import { ProductDetailsComponent } from './components/product-details/product-details.component';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { NameFilterPipe } from './components/product-list/filters/name-filter.pipe';
+import { authInterceptorProviders } from './helpers/auth.interceptor';
+import { ProfileComponent } from './components/profile/profile.component';
+import { RegisterComponent } from './components/register/register.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +25,8 @@ import { NameFilterPipe } from './components/product-list/filters/name-filter.pi
     ProductDetailsComponent,
     ProductListComponent,
     NameFilterPipe,
+    ProfileComponent,
+    RegisterComponent,
   ],
 
   imports: [
@@ -31,10 +36,10 @@ import { NameFilterPipe } from './components/product-list/filters/name-filter.pi
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    NoopAnimationsModule
+    NoopAnimationsModule,
   ],
 
-  providers: [ProductService],
-  bootstrap: [AppComponent]
+  providers: [authInterceptorProviders, ProductService],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
