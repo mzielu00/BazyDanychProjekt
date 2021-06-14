@@ -62,6 +62,14 @@
 
     <div class="col-md-2">
       <h5>Tworzenie setu</h5>
+
+      <div class="form-group">
+        <input type="text" class="form-control" placeholder="Wprowadź nazwę" style="width: 215px;"
+          [(ngModel)]="setName" />
+      </div>
+
+      <br>
+
       <ul class="list-group">
         <li class="list-group-item"
           *ngFor="let product of productSet"

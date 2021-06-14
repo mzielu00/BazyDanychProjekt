@@ -11,10 +11,29 @@ import { Product } from 'src/app/Product';
   styleUrls: ['./product-list.component.css'],
 })
 export class ProductListComponent implements OnInit {
+
+  product = {
+    name: '',
+    category: '',
+    calories: '',
+    proteins: '',
+    carbohydrates: '',
+    fats: '',
+    isSet: '',
+    products: '',
+  };
+
   setFlag = false;
   products: any;
   productList: Array<Product>;
+
   productSet: Array<Product>;
+  setName: String;
+  setCaloriesCounter: any = 0;
+  setProteinsCounter: any = 0;
+  setCarbohydratesCounter: any = 0;
+  setFatsCounter: any = 0;
+
   dataSource: any;
   currProduct: Product;
   currentIdx = -1;
@@ -128,9 +147,53 @@ export class ProductListComponent implements OnInit {
   addProductToSet(currProduct): void {
     this.productSet.push(currProduct);
     this.setFlag = true;
+
+    this.updateSetCounters();
+
+    console.log(this.setCaloriesCounter);
+
   }
 
-  saveSet(): void {}
+  
+
+/// sets functions
+
+saveSet(): void {
+  const data = {
+    name: this.setName,
+    category: "set",
+    calories: this.setCaloriesCounter,
+    proteins: this.setProteinsCounter,
+    carbohydrates: this.setCarbohydratesCounter,
+    fats: this.setFatsCounter,
+    isSet: true,
+    products: this.productSet
+  };
+  console.log(data);
+  this.productService.addProduct(data).subscribe(
+    (response) => {
+      console.log(response);
+    },
+    (err) => {
+      console.log(err);
+    }
+  );
+}
+
+updateSetCounters(): void {
+    
+  this.setCaloriesCounter = 0;
+  this.setProteinsCounter = 0;
+  this.setCarbohydratesCounter = 0;
+  this.setFatsCounter = 0;
+
+  for (var p of this.productSet) {
+    this.setCaloriesCounter += p.calories;
+    this.setProteinsCounter += p.proteins;
+    this.setCarbohydratesCounter += p.carbohydrates;
+    this.setFatsCounter += p.fats;    
+    }
+  }
 
   deleteSet(): void {
     var counter = this.productSet.length;

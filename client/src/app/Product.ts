@@ -6,4 +6,6 @@ export class Product
     proteins: Number;
     carbohydrates: Number;
     fats: Number;
+    isSet: { type: Boolean, default: false };
+    products: [String];
 }

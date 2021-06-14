@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const { Product, addProduct, deleteProduct } = require("../models/product");
+const { Product, addProduct, addSet, deleteProduct } = require("../models/product");
 
 router.get("/", (req, res) => {
     console.log;
