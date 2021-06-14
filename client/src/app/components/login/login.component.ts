@@ -1,9 +1,7 @@
 import { TokenStorageService } from './../../services/token-storage.service';
 import { AuthService } from './../../services/auth.service';
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-
-export let isLogged = false;
+import { Router, RouterModule, Routes } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -44,9 +42,8 @@ export class LoginComponent implements OnInit {
 
         this.isLoginFailed = false;
         this.isLoggedIn = true;
-        isLogged = true;
         //this.reloadPage();
-        this.router.navigate(['/user']);
+        // this.router.navigate(['/products']);
       },
       (err) => {
         this.errorMessage = err.error.message;
