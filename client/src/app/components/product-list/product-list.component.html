@@ -1,4 +1,4 @@
-  <!-- <div class="col-md-8">
+<!-- <div class="col-md-8">
 
     <div class="input-group mb-3">
 
@@ -22,94 +22,89 @@
   <h5>Wyszukiwanie produktów</h5>
 
   <div style="padding-left: 20px;" class="form-group">
-    <input type="text" class="form-control" placeholder="Według nazwy"
-          style="width: 300px;" [(ngModel)]="nameTerm"/>
+    <input type="text" class="form-control" placeholder="Według nazwy" style="width: 300px;" [(ngModel)]="nameTerm" />
   </div>
   <br>
   <div style="padding-left: 20px;" class="form-group">
-    <input type="text" class="form-control" placeholder="Według kategorii"
-          style="width: 300px;" [(ngModel)]="categoryTerm"/>
+    <input type="text" class="form-control" placeholder="Według kategorii" style="width: 300px;"
+      [(ngModel)]="categoryTerm" />
   </div>
 
 </div>
 
-  <br>
+<br>
 
-  <div class="col-md-6">
+<div class="col-md-6">
 
-    <h4 style="padding-left: 10px;">Znalezione produkty</h4>
-    
-    <ul style="padding-left: 10px;" class="list-group">
-      
-      <li
-        class="list-group-item"
-        *ngFor="let product of products | nameFilter:nameTerm | categoryFilter:categoryTerm; let i = index"
-        [class.active]="i == currentIdx"
-        (click)="setProduct(product, i)"
-      >
-        {{ product.name }}
-      </li>
-    
-    </ul>
-  
-  </div>
-  
-  <br>
+  <h4 style="padding-left: 10px;">Znalezione produkty</h4>
 
-  <div style="padding-left: 10px;" class="col-md-6">
-                         
-    <div *ngIf="currProduct">
+  <ul style="padding-left: 10px;" class="list-group">
 
-      <div class="card text-white bg-dark mb-3" style="max-width: 18rem;">
+    <li class="list-group-item"
+      *ngFor="let product of products | nameFilter:nameTerm | categoryFilter:categoryTerm; let i = index"
+      [class.active]="i == currentIdx" (click)="setProduct(product, i)">
+      {{ product.name }}
+    </li>
 
-        <div class="card-header">Wybrany produkt</div>
+  </ul>
 
-        <div style="text-align: center;" class="card-body">
+</div>
 
-          <h5 class="card-title">{{ currProduct.name }}</h5>
-          <br>
-          <p class="card-text">kategoria: {{ currProduct.category }}</p>
-          <p class="card-text">ilość kalorii: {{ currProduct.calories }}</p>
-          <p class="card-text">białka: {{ currProduct.proteins }}</p>
-          <p class="card-text">tłuszcze: {{ currProduct.fats }}</p>
-          <p class="card-text">węglowodany: {{ currProduct.carbohydrates }}</p>
-          <br>
-          <a href="#" class="btn btn-danger">Usuń z listy</a>
-          <br><br>
-          <a href="#" (click)="addProductToCalc(currProduct)" class="btn btn-success">Dodaj do kalkulatora</a>
-          <br><br>
-          <a href="#" class="btn btn-info">Dodaj do Setu</a>
+<br>
 
-        </div>
-        
+<div style="padding-left: 10px;" class="col-md-6">
+
+  <div *ngIf="currProduct">
+
+    <div class="card text-white bg-dark mb-3" style="max-width: 18rem;">
+
+      <div class="card-header">Wybrany produkt</div>
+
+      <div style="text-align: center;" class="card-body">
+
+        <h5 class="card-title">{{ currProduct.name }}</h5>
+        <br>
+        <p class="card-text">kategoria: {{ currProduct.category }}</p>
+        <p class="card-text">ilość kalorii: {{ currProduct.calories }}</p>
+        <p class="card-text">białka: {{ currProduct.proteins }}</p>
+        <p class="card-text">tłuszcze: {{ currProduct.fats }}</p>
+        <p class="card-text">węglowodany: {{ currProduct.carbohydrates }}</p>
+        <br>
+        <a class="btn btn-danger">Usuń z listy</a>
+        <br><br>
+        <a (click)="addProductToCalc(currProduct)" class="btn btn-success">Dodaj do kalkulatora</a>
+        <br><br>
+        <a class="btn btn-info">Dodaj do Setu</a>
+
       </div>
 
-    </div>    
-  
+    </div>
+
   </div>
-  <div style="padding-left: 10px;" class="col-md-6">
-                         
-    <div *ngIf="currProduct">
 
-      <div class="card text-white bg-dark mb-3" style="max-width: 18rem;">
+</div>
+<div style="padding-left: 10px;" class="col-md-6">
 
-        <div class="card-header">Kalkulator</div>
+  <div *ngIf="currProduct">
 
-        <div style="text-align: center;" class="card-body">
+    <div class="card text-white bg-dark mb-3" style="max-width: 18rem;">
 
-          <h5 class="card-title">Produkt: {{ currProduct.name }}</h5>
-          <br>
-          <p class="card-text">suma kalorii: {{ caloriesCounter }}</p>
-          <p class="card-text">suma białka: {{ currProduct.proteins }}</p>
-          <p class="card-text">suma tłuszczów: {{ currProduct.fats }}</p>
-          <p class="card-text">suma węglowodanów: {{ currProduct.carbohydrates }}</p>
-          <br>
+      <div class="card-header">Kalkulator</div>
 
-        </div>
-        
+      <div style="text-align: center;" class="card-body">
+
+        <h5 class="card-title">Produkt: {{ currProduct.name }}</h5>
+        <br>
+        <p class="card-text">suma kalorii: {{ caloriesCounter }}</p>
+        <p class="card-text">suma białka: {{ currProduct.proteins }}</p>
+        <p class="card-text">suma tłuszczów: {{ currProduct.fats }}</p>
+        <p class="card-text">suma węglowodanów: {{ currProduct.carbohydrates }}</p>
+        <br>
+
       </div>
 
-    </div>    
-  
+    </div>
+
   </div>
 
+</div>
