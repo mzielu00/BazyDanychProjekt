@@ -1,7 +1,7 @@
-post http://localhost:3000/auth/signin
+post http://localhost:3000/auth/signup
 Content-Type: application/json
 
 {
-    "username": "Zbigniew",
+    "username": "Kacper",
     "password": "pawlacz"
 }
