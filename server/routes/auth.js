@@ -1,5 +1,8 @@
 const router = require("express").Router();
-const { checkDuplicateUsername } = require("../middlewares/authentication");
+const {
+    checkDuplicateUsername,
+    verifyToken,
+} = require("../middlewares/authentication");
 const { signup, signin } = require("../models/user");
 
 router.get("/", (req, res) => {
@@ -17,5 +20,10 @@ router.post(
 );
 
 router.post("/signin", signin);
+
+//check user token
+router.get("/user", verifyToken, (req, res) => {
+    res.status(200).send("User Content.");
+});
 
 module.exports = router;
