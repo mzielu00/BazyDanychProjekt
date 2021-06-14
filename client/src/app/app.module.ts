@@ -13,6 +13,7 @@ import { ProductListComponent } from './components/product-list/product-list.com
 import { ProductDetailsComponent } from './components/product-details/product-details.component';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { NameFilterPipe } from './components/product-list/filters/name-filter.pipe';
+import { CategoryFilterPipe } from './components/product-list/filters/category-filter.pipe';
 import { authInterceptorProviders } from './helpers/auth.interceptor';
 import { ProfileComponent } from './components/profile/profile.component';
 import { RegisterComponent } from './components/register/register.component';
@@ -25,6 +26,7 @@ import { RegisterComponent } from './components/register/register.component';
     ProductDetailsComponent,
     ProductListComponent,
     NameFilterPipe,
+    CategoryFilterPipe,
     ProfileComponent,
     RegisterComponent,
   ],
