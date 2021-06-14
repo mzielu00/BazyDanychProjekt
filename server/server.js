@@ -14,7 +14,7 @@ db.once("open", function () {
 //Express setup
 var express = require("express");
 var app = express();
-const router = require("./routes");
+const router = require("./routes/products");
 const logger = require("morgan");
 const cors = require("cors");
 
@@ -22,7 +22,11 @@ app.use(logger("dev"));
 app.use(cors());
 app.use(express.json());
 
-app.use("/", router);
+app.get("/", (req, res) => {
+    res.send("<h1>GR GR GR</h1>");
+});
+app.use("/products", router);
+app.use("/auth", router);
 
 // The application is to listen on port number 3000
 app.listen(3000, function () {
