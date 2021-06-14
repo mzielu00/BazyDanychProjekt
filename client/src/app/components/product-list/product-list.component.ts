@@ -38,7 +38,7 @@ export class ProductListComponent implements OnInit {
     this.currentIdx = -1;
   }
 
-  setProduct(product, idx): void{
+  setProduct(product: any, idx: number): void{
     this.currProduct = product;
     this.currentIdx = idx;
   }
