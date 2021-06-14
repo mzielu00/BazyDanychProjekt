@@ -1,7 +1,21 @@
 const router = require("express").Router();
-const authentication = require("../middlewares");
+const { checkDuplicateUsername } = require("../middlewares/authentication");
 const { signup, signin } = require("../models/user");
 
-router.post("/signup", authentication.checkDuplicateUsername, signup);
+router.get("/", (req, res) => {
+    console.log("auth works");
+});
+
+router.post(
+    "/signup",
+    (req, res, next) => {
+        console.log(req.body.username);
+        next();
+    },
+    checkDuplicateUsername,
+    signup
+);
 
 router.post("/signin", signin);
+
+module.exports = router;

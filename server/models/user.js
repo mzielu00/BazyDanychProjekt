@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
 
+//sets stores set IDs
 const User = mongoose.model(
     "User",
     new mongoose.Schema({
@@ -9,12 +10,11 @@ const User = mongoose.model(
     })
 );
 
-module.exports = User;
-
 var jwt = require("jsonwebtoken");
 var bcrypt = require("bcryptjs");
+const authConfig = require("../config/auth.config");
 
-exports.signup = (req, res) => {
+const signup = (req, res) => {
     const user = new User({
         username: req.body.username,
         password: bcrypt.hashSync(req.body.password, 8),
@@ -39,7 +39,7 @@ exports.signup = (req, res) => {
     });
 };
 
-exports.signin = (req, res) => {
+const signin = (req, res) => {
     User.findOne({
         username: req.body.username,
     }).exec((err, user) => {
@@ -64,15 +64,10 @@ exports.signin = (req, res) => {
             });
         }
 
-        var token = jwt.sign({ id: user.id }, config.secret, {
+        var token = jwt.sign({ id: user.id }, authConfig.secret, {
             expiresIn: 86400, // 24 hours
         });
 
-        var authorities = [];
-
-        for (let i = 0; i < user.roles.length; i++) {
-            authorities.push("ROLE_" + user.roles[i].name.toUpperCase());
-        }
         res.status(200).send({
             id: user._id,
             username: user.username,
@@ -81,3 +76,5 @@ exports.signin = (req, res) => {
         });
     });
 };
+
+module.exports = { User, signup, signin };
