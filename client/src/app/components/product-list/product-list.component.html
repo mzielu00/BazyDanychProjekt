@@ -1,5 +1,3 @@
-<div class="list row">
-
   <!-- <div class="col-md-8">
 
     <div class="input-group mb-3">
@@ -18,11 +16,22 @@
 
   </div> -->
 
+
+<div class="filter-section">
+
+  <h5>Wyszukiwanie produktów</h5>
+
   <div style="padding-left: 20px;" class="form-group">
-    <label for="date">Wyszukaj</label>
     <input type="text" class="form-control" placeholder="Według nazwy"
           style="width: 300px;" [(ngModel)]="nameTerm"/>
   </div>
+  <br>
+  <div style="padding-left: 20px;" class="form-group">
+    <input type="text" class="form-control" placeholder="Według kategorii"
+          style="width: 300px;" [(ngModel)]="categoryTerm"/>
+  </div>
+
+</div>
 
   <br>
 
@@ -34,7 +43,7 @@
       
       <li
         class="list-group-item"
-        *ngFor="let product of products | nameFilter:nameTerm; let i = index"
+        *ngFor="let product of products | nameFilter:nameTerm | categoryFilter:categoryTerm; let i = index"
         [class.active]="i == currentIdx"
         (click)="setProduct(product, i)"
       >
@@ -75,4 +84,3 @@
   
   </div>
 
-</div>

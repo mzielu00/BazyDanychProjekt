@@ -19,6 +19,7 @@ export class ProductListComponent implements OnInit {
   name = '';
 
   nameTerm: string;
+  categoryTerm: string;
 
   constructor(private productService: ProductService) { }
 

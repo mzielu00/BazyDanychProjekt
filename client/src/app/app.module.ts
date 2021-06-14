@@ -13,6 +13,7 @@ import { ProductListComponent } from './components/product-list/product-list.com
 import { ProductDetailsComponent } from './components/product-details/product-details.component';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { NameFilterPipe } from './components/product-list/filters/name-filter.pipe';
+import { CategoryFilterPipe } from './components/product-list/filters/category-filter.pipe';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { NameFilterPipe } from './components/product-list/filters/name-filter.pi
     ProductDetailsComponent,
     ProductListComponent,
     NameFilterPipe,
+    CategoryFilterPipe
   ],
 
   imports: [
