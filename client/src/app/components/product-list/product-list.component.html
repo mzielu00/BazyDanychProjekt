@@ -17,12 +17,17 @@
       </div>
 
   </div>
-          
+
+  <div style="padding-left: 10px;" class="form-group">
+    <input type="text" class="form-control" placeholder="Według nazwy"
+          style="width: 300px;" [(ngModel)]="nameTerm"/>
+  </div>
+  <br>
   <div class="col-md-6">
 
     <h4 style="padding-left: 10px;">Znalezione produkty</h4>
-
-    <ul class="list-group">
+    
+    <ul style="padding-left: 10px;" class="list-group">
       
       <li
         class="list-group-item"
@@ -47,7 +52,7 @@
 
         <div class="card-header">Wybrany produkt</div>
 
-        <div class="card-body">
+        <div style="text-align: center;" class="card-body">
 
           <h5 class="card-title">{{ currProduct.name }}</h5>
           <br>

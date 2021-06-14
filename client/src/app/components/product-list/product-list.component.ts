@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductService } from 'src/app/services/product.service';
+import { map } from 'rxjs/operators';
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 
@@ -12,9 +13,12 @@ import { NgModule } from '@angular/core';
 export class ProductListComponent implements OnInit {
 
   products: any;
+  dataSource: any;
   currProduct = null;
   currentIdx = -1;
   name = '';
+
+  nameTerm: string;
 
   constructor(private productService: ProductService) { }
 

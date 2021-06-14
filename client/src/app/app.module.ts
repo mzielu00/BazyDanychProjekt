@@ -11,6 +11,8 @@ import { AddProductComponent } from './components/add-product/add-product.compon
 import { LoginComponent } from './components/login/login.component';
 import { ProductListComponent } from './components/product-list/product-list.component';
 import { ProductDetailsComponent } from './components/product-details/product-details.component';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { NameFilterPipe } from './components/product-list/filters/name-filter.pipe';
 
 @NgModule({
   declarations: [
@@ -18,7 +20,8 @@ import { ProductDetailsComponent } from './components/product-details/product-de
     AddProductComponent,
     LoginComponent,
     ProductDetailsComponent,
-    ProductListComponent
+    ProductListComponent,
+    NameFilterPipe,
   ],
 
   imports: [
@@ -27,7 +30,8 @@ import { ProductDetailsComponent } from './components/product-details/product-de
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    NoopAnimationsModule
   ],
 
   providers: [ProductService],
