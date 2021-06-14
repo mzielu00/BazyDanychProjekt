@@ -124,5 +124,15 @@ export class ProductListComponent implements OnInit {
     this.productSet.push(currProduct);
 
   }
-  
+
+  resetCounters(): void {
+
+    console.log("im in resetCounters");
+
+    this.caloriesCounter = 0;
+    this.proteinsCounter = 0;
+    this.carbohydratesCounter = 0;
+    this.fatsCounter = 0;
+  }
+
 }
