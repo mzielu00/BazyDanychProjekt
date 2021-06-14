@@ -37,9 +37,9 @@
 
   <div class="col-md-6">
 
-    <h4 style="padding-left: 10px;">Znalezione produkty</h4>
+    <h4 style="margin-left: 30px;">Znalezione produkty</h4>
     
-    <ul style="padding-left: 10px;" class="list-group">
+    <ul style="margin-left: 30px;" class="list-group">
       
       <li
         class="list-group-item"
@@ -56,7 +56,7 @@
   
   <br>
 
-  <div style="padding-left: 10px;" class="col-md-6">
+  <div style="margin-left: 30px;" class="col-md-6">
                          
     <div *ngIf="currProduct">
 
@@ -74,11 +74,11 @@
           <p class="card-text">tłuszcze: {{ currProduct.fats }}</p>
           <p class="card-text">węglowodany: {{ currProduct.carbohydrates }}</p>
           <br>
-          <a href="#" class="btn btn-danger">Usuń z listy</a>
+          <a class="btn btn-danger">Usuń z listy</a>
           <br><br>
-          <a href="#" (click)="addProductToCalc(currProduct)" class="btn btn-success">Dodaj do kalkulatora</a>
+          <a (click)="addProductToCalc(currProduct)" class="btn btn-success">Dodaj do kalkulatora</a>
           <br><br>
-          <a href="#" class="btn btn-info">Dodaj do Setu</a>
+          <a class="btn btn-info">Dodaj do Setu</a>
 
         </div>
         
@@ -87,7 +87,8 @@
     </div>    
   
   </div>
-  <div style="padding-left: 10px;" class="col-md-6">
+
+  <div style="margin-left: 30px;" class="col-md-6">
                          
     <div *ngIf="currProduct">
 
@@ -97,13 +98,14 @@
 
         <div style="text-align: center;" class="card-body">
 
-          <h5 class="card-title">Produkt: {{ currProduct.name }}</h5>
+          <h5 class="card-title">Podsumowanie</h5>
           <br>
           <p class="card-text">suma kalorii: {{ caloriesCounter }}</p>
-          <p class="card-text">suma białka: {{ currProduct.proteins }}</p>
-          <p class="card-text">suma tłuszczów: {{ currProduct.fats }}</p>
-          <p class="card-text">suma węglowodanów: {{ currProduct.carbohydrates }}</p>
+          <p class="card-text">suma białka: {{ proteinsCounter }}</p>
+          <p class="card-text">suma tłuszczów: {{ fatsCounter }}</p>
+          <p class="card-text">suma węglowodanów: {{ carbohydratesCounter }}</p>
           <br>
+          <a (click)="resetCounter()" class="btn btn-warning">Resetuj licznik</a>
 
         </div>
         
