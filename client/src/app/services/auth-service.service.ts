@@ -35,4 +35,8 @@ export class AuthServiceService {
       httpOptions
     );
   }
+
+  getUserContent(): Observable<any> {
+    return this.http.get(AUTH_API + 'user', { responseType: 'text' });
+  }
 }
