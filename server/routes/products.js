@@ -1,10 +1,6 @@
 const router = require("express").Router();
 const { Product, addProduct } = require("../models/product");
 
-router.get("/", (req, res) => {
-    res.send("<h1>GR GR GR</h1>");
-});
-
 router.get("/products", (req, res) => {
     Product.find({}, (err, products) => {
         if (err) {
