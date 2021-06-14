@@ -3,6 +3,8 @@ import { AuthService } from './../../services/auth.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
+export let isLogged = false;
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -39,6 +41,7 @@ export class LoginComponent implements OnInit {
 
         this.isLoginFailed = false;
         this.isLoggedIn = true;
+        isLogged = true;
         //this.reloadPage();
         this.router.navigate(['/user']);
       },

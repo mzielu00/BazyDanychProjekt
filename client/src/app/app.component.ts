@@ -1,3 +1,4 @@
+import { isLogged } from './components/login/login.component';
 import { TokenStorageService } from './services/token-storage.service';
 
 import { Component } from '@angular/core';
@@ -13,5 +14,10 @@ export class AppComponent {
 
   logout() {
     this.TokenStorageService.signOut();
+  }
+
+  test() {
+    console.log(isLogged);
+    return isLogged;
   }
 }
