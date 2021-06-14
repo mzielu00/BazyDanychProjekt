@@ -2,6 +2,10 @@ const router = require("express").Router();
 const { Product, addProduct } = require("../models/product");
 
 router.get("/", (req, res) => {
+    res.send("<h1>GR GR GR</h1>");
+});
+
+router.get("/products", (req, res) => {
     Product.find({}, (err, products) => {
         if (err) {
             console.error(err);
@@ -12,7 +16,7 @@ router.get("/", (req, res) => {
     });
 });
 
-router.post("/", (req, res) => {
+router.post("/products", (req, res) => {
     addProduct(
         req.body.name,
         req.body.category,
@@ -23,7 +27,7 @@ router.post("/", (req, res) => {
     );
 });
 
-router.get("/:name", (req, res) => {
+router.get("/products/:name", (req, res) => {
     Product.find({ name: req.params.name }, (err, products) => {
         if (err) {
             console.error(err);

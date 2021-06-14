@@ -39,6 +39,7 @@ export class AddProductComponent implements OnInit {
       name: this.product.name,
       category: this.product.category,
       calories: this.product.calories,
+      proteins: this.product.proteins,
       carbohydrates: this.product.carbohydrates,
       fats: this.product.fats,
     };
