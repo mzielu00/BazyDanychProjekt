@@ -19,7 +19,9 @@
         <h5 class="card-title">Zjedzone produkty:</h5>
         <hr>
         <ul>
-          <li class="card-text" *ngFor="let product of productList">{{ product.name }}</li>
+          <li class="card-text" *ngFor="let product of productList">{{ product.name }} &nbsp; &nbsp;<i
+              class="fas fa-trash" (click)="removeFromEaten(product)"></i>
+          </li>
         </ul>
       </div>
 
