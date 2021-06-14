@@ -132,10 +132,16 @@ export class ProductListComponent implements OnInit {
 
     console.log("im in resetCounters");
 
-    this.caloriesCounter = 0;
-    this.proteinsCounter = 0;
-    this.carbohydratesCounter = 0;
-    this.fatsCounter = 0;
+    var counter = this.productList.length;
+
+    for (let i = 0; i < counter; i++) this.productList.pop();
+    
+    // this.caloriesCounter = 0;
+    // this.proteinsCounter = 0;
+    // this.carbohydratesCounter = 0;
+    // this.fatsCounter = 0;
+
+    this.updateCounters()
   }
 
 }
