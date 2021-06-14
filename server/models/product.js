@@ -7,6 +7,8 @@ const ProductSchema = new mongoose.Schema({
     proteins: Number,
     carbohydrates: Number,
     fats: Number,
+    isSet: { type: Boolean, default: false },
+    products: [String],
 });
 
 const Product = mongoose.model("Product", ProductSchema);
@@ -41,7 +43,32 @@ function addProduct(name, category, calories, proteins, carbohydrates, fats) {
         else console.log("new record added successfully");
     });
 }
-//addProduct("jajeczniczka", "obiadek", 4312, 43, 32, 2);
+
+function addSet(
+    name,
+    category,
+    calories,
+    proteins,
+    carbohydrates,
+    fats,
+    products
+) {
+    const newRecord = new Product({
+        name: name,
+        category: category,
+        calories: calories,
+        proteins: proteins,
+        carbohydrates: carbohydrates,
+        fats: fats,
+        isSet: true,
+        products: products,
+    });
+    newRecord.save((e) => {
+        if (e) console.error(e);
+        else console.log("new set added successfully");
+    });
+}
+//addSet("set", "set", 4312, 43, 32, 2, ["jajeczniczka", "burgerek"]);
 
 function deleteProduct(prodName) {
     console.log(prodName);
@@ -54,4 +81,4 @@ function deleteProduct(prodName) {
     });
 }
 
-module.exports = { Product, loadProduct, addProduct, deleteProduct };
+module.exports = { Product, loadProduct, addProduct, deleteProduct, addSet };

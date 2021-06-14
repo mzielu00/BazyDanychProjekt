@@ -14,14 +14,26 @@ router.get("/", (req, res) => {
 });
 
 router.post("/", (req, res) => {
-    addProduct(
-        req.body.name,
-        req.body.category,
-        req.body.calories,
-        req.body.proteins,
-        req.body.carbohydrates,
-        req.body.fats
-    );
+    if (req.body.isSet) {
+        addSet(
+            req.body.name,
+            req.body.category,
+            req.body.calories,
+            req.body.proteins,
+            req.body.carbohydrates,
+            req.body.fats,
+            req.body.products
+        );
+    } else {
+        addProduct(
+            req.body.name,
+            req.body.category,
+            req.body.calories,
+            req.body.proteins,
+            req.body.carbohydrates,
+            req.body.fats
+        );
+    }
 });
 
 router.get("/:name", (req, res) => {

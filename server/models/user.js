@@ -6,7 +6,6 @@ const User = mongoose.model(
     new mongoose.Schema({
         username: String,
         password: String,
-        sets: [{ set_id: Number }],
     })
 );
 
