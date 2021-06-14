@@ -11,8 +11,8 @@
     </p>
     <strong>Zestawy:</strong>
     <ul>
-        <li *ngFor="let set of currentUser.sets">
-            {{ set }}
+        <li *ngFor="let set of userProducts">
+            {{ set.name + ": " + set.calories + "kcal" }}
         </li>
     </ul>
 </div>

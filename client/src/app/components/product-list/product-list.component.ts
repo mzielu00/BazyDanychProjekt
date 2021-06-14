@@ -1,3 +1,4 @@
+import { TokenStorageService } from './../../services/token-storage.service';
 import { Component, OnInit } from '@angular/core';
 import { ProductService } from 'src/app/services/product.service';
 import { map } from 'rxjs/operators';
@@ -11,7 +12,6 @@ import { Product } from 'src/app/Product';
   styleUrls: ['./product-list.component.css'],
 })
 export class ProductListComponent implements OnInit {
-
   product = {
     name: '',
     category: '',
@@ -45,13 +45,18 @@ export class ProductListComponent implements OnInit {
 
   nameTerm: string;
   categoryTerm: string;
+  currentUser: any;
 
-  constructor(private productService: ProductService) {}
+  constructor(
+    private productService: ProductService,
+    private token: TokenStorageService
+  ) {}
 
   ngOnInit(): void {
     this.showProducts();
     this.productList = new Array();
     this.productSet = new Array();
+    this.currentUser = this.token.getUser();
   }
 
   showProducts(): void {
@@ -151,47 +156,44 @@ export class ProductListComponent implements OnInit {
     this.updateSetCounters();
 
     console.log(this.setCaloriesCounter);
-
   }
 
-  
+  /// sets functions
 
-/// sets functions
+  saveSet(): void {
+    const data = {
+      name: this.setName,
+      category: 'set',
+      calories: this.setCaloriesCounter,
+      proteins: this.setProteinsCounter,
+      carbohydrates: this.setCarbohydratesCounter,
+      fats: this.setFatsCounter,
+      isSet: true,
+      products: this.productSet,
+      user: this.currentUser.username,
+    };
+    console.log(data);
+    this.productService.addProduct(data).subscribe(
+      (response) => {
+        console.log(response);
+      },
+      (err) => {
+        console.log(err);
+      }
+    );
+  }
 
-saveSet(): void {
-  const data = {
-    name: this.setName,
-    category: "set",
-    calories: this.setCaloriesCounter,
-    proteins: this.setProteinsCounter,
-    carbohydrates: this.setCarbohydratesCounter,
-    fats: this.setFatsCounter,
-    isSet: true,
-    products: this.productSet
-  };
-  console.log(data);
-  this.productService.addProduct(data).subscribe(
-    (response) => {
-      console.log(response);
-    },
-    (err) => {
-      console.log(err);
-    }
-  );
-}
+  updateSetCounters(): void {
+    this.setCaloriesCounter = 0;
+    this.setProteinsCounter = 0;
+    this.setCarbohydratesCounter = 0;
+    this.setFatsCounter = 0;
 
-updateSetCounters(): void {
-    
-  this.setCaloriesCounter = 0;
-  this.setProteinsCounter = 0;
-  this.setCarbohydratesCounter = 0;
-  this.setFatsCounter = 0;
-
-  for (var p of this.productSet) {
-    this.setCaloriesCounter += p.calories;
-    this.setProteinsCounter += p.proteins;
-    this.setCarbohydratesCounter += p.carbohydrates;
-    this.setFatsCounter += p.fats;    
+    for (var p of this.productSet) {
+      this.setCaloriesCounter += p.calories;
+      this.setProteinsCounter += p.proteins;
+      this.setCarbohydratesCounter += p.carbohydrates;
+      this.setFatsCounter += p.fats;
     }
   }
 

@@ -9,6 +9,7 @@ const ProductSchema = new mongoose.Schema({
     fats: Number,
     isSet: { type: Boolean, default: false },
     products: [String],
+    user: String,
 });
 
 const Product = mongoose.model("Product", ProductSchema);
@@ -51,7 +52,8 @@ function addSet(
     proteins,
     carbohydrates,
     fats,
-    products
+    products,
+    user
 ) {
     const newRecord = new Product({
         name: name,
@@ -62,6 +64,7 @@ function addSet(
         fats: fats,
         isSet: true,
         products: products,
+        user: user,
     });
     newRecord.save((e) => {
         if (e) console.error(e);

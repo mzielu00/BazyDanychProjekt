@@ -1,5 +1,10 @@
 const router = require("express").Router();
-const { Product, addProduct, addSet, deleteProduct } = require("../models/product");
+const {
+    Product,
+    addProduct,
+    addSet,
+    deleteProduct,
+} = require("../models/product");
 
 router.get("/", (req, res) => {
     console.log;
@@ -22,7 +27,8 @@ router.post("/", (req, res) => {
             req.body.proteins,
             req.body.carbohydrates,
             req.body.fats,
-            req.body.products
+            req.body.products,
+            req.body.user
         );
     } else {
         addProduct(
