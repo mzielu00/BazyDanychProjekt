@@ -1,28 +1,13 @@
 <div class="list row">
 
-  <div class="col-md-8">
-
-    <div class="input-group mb-3">
-
-      <input
-        type="text"
-        class="form-control"
-        placeholder="Wprowadz nazwe produktu"
-        ([ngModel]) = "name"
-        name = "name" 
-      />
-
-      <div class="input-group-append">
-        <button class="btn btn-outline-secondary" type="button" (click)="findProduct()" > Szukaj </button>
-      </div>
-
-  </div>
-
-  <div style="padding-left: 10px;" class="form-group">
+  <div style="padding-left: 20px;" class="form-group">
+    <label for="date">Wyszukaj</label>
     <input type="text" class="form-control" placeholder="Według nazwy"
           style="width: 300px;" [(ngModel)]="nameTerm"/>
   </div>
+
   <br>
+
   <div class="col-md-6">
 
     <h4 style="padding-left: 10px;">Znalezione produkty</h4>
@@ -31,7 +16,7 @@
       
       <li
         class="list-group-item"
-        *ngFor="let product of products; let i = index"
+        *ngFor="let product of products | nameFilter:nameTerm; let i = index"
         [class.active]="i == currentIdx"
         (click)="setProduct(product, i)"
       >
@@ -57,11 +42,41 @@
           <h5 class="card-title">{{ currProduct.name }}</h5>
           <br>
           <p class="card-text">kategoria: {{ currProduct.category }}</p>
+          <p class="card-text">ilość kalorii: {{ currProduct.calories }}</p>
           <p class="card-text">białka: {{ currProduct.proteins }}</p>
           <p class="card-text">tłuszcze: {{ currProduct.fats }}</p>
           <p class="card-text">węglowodany: {{ currProduct.carbohydrates }}</p>
           <br>
           <a href="#" class="btn btn-danger">Usuń z listy</a>
+          <br><br>
+          <a href="#" class="btn btn-success">Dodaj do kalkulatora</a>
+          <br><br>
+          <a href="#" class="btn btn-info">Dodaj do Setu</a>
+
+        </div>
+        
+      </div>
+
+    </div>    
+  
+  </div>
+  <div style="padding-left: 10px;" class="col-md-6">
+                         
+    <div *ngIf="currProduct">
+
+      <div class="card text-white bg-dark mb-3" style="max-width: 18rem;">
+
+        <div class="card-header">Kalkulator</div>
+
+        <div style="text-align: center;" class="card-body">
+
+          <h5 class="card-title">Produkt: {{ currProduct.name }}</h5>
+          <br>
+          <p class="card-text">ilość kalorii: {{ caloriesCounter }}</p>
+          <p class="card-text">białka: {{ currProduct.proteins }}</p>
+          <p class="card-text">tłuszcze: {{ currProduct.fats }}</p>
+          <p class="card-text">węglowodany: {{ currProduct.carbohydrates }}</p>
+          <br>
 
         </div>
         
