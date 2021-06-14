@@ -1,1 +1,59 @@
-<p>product-list works!</p>
+<div class="list row">
+    <div class="col-md-8">
+      <div class="input-group mb-3">
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Search by title"
+          [(ngModel)]="name"
+        />
+        <div class="input-group-append">
+          <button
+            class="btn btn-outline-secondary"
+            type="button"
+            (click)="findProduct()"
+          >
+            Search
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <h4>Tutorials List</h4>
+      <ul class="list-group">
+        <li
+          class="list-group-item"
+          *ngFor="let product of products; let i = index"
+          [class.active]="i == currentIdx"
+          (click)="setProduct(product, i)"
+        >
+          {{ product.name }}
+        </li>
+      </ul>
+  
+      <button class="m-3 btn btn-sm btn-danger" (click)="removeAll()">
+        Remove All
+      </button>
+    </div>
+    <div class="col-md-6">
+      <div *ngIf="currProduct">
+        <h4>Tutorial</h4>
+        <div>
+          <label><strong>Nazwa:</strong></label> {{ currProduct.name }}
+        </div>
+        <div>
+          <label><strong>Kalorie:</strong></label>
+          {{ currProduct.calories }}
+        </div>
+  
+        <a class="badge badge-warning" routerLink="/products/{{ currProduct.name }}">
+          Edit
+        </a>
+      </div>
+  
+      <div *ngIf="!currProduct">
+        <br />
+        <p>Please click on a Tutorial...</p>
+      </div>
+    </div>
+  </div>
