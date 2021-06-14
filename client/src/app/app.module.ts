@@ -26,7 +26,6 @@ import { NameFilterPipe } from './components/product-list/filters/name-filter.pi
 
   imports: [
     BrowserModule,
-
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
