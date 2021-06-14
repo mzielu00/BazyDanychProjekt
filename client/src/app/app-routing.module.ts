@@ -4,6 +4,7 @@ import { ProductDetailsComponent } from './components/product-details/product-de
 import { ProductListComponent } from './components/product-list/product-list.component';
 import { AddProductComponent } from './components/add-product/add-product.component';
 import { LoginComponent } from './components/login/login.component';
+import {CommonModule} from '@angular/common';
 
 const routes: Routes = [
   {path: '', redirectTo: 'login', pathMatch: 'full'},

@@ -9,50 +9,13 @@
           name = "name"
         />
         <div class="input-group-append">
-          <button
-            class="btn btn-outline-secondary"
-            type="button"
-            (click)="findProduct()"
-          >
-            Search
-          </button>
+          <button class="btn btn-outline-secondary" type="button" (click)="findProduct()" > Szukaj </button>
         </div>
-      </div>
     </div>
-    <div class="col-md-6">
-      <h4>Lista wyszukanych produktów</h4>
-      <ul class="list-group">
-        <li
-          class="list-group-item"
-          *ngFor="let product of products"
-        >
-          {{ product.name }}
-        </li>
-      </ul>
-  
-      <button class="m-3 btn btn-sm btn-danger" (click)="removeAll()">
-        Remove All
-      </button>
+          <div class="col-md-6">
+            <h4>Lista wyszukanych produktów</h4>
+            <app-product-details *ngFor = "let product of products; let i = index" [specProduct]="product">
+            </app-product-details>
+          </div>
     </div>
-    <div class="col-md-6">
-      <div *ngIf="currProduct">
-        <h4>Produkt</h4>
-        <div>
-          <label><strong>Nazwa:</strong></label> {{ currProduct.name }}
-        </div>
-        <div>
-          <label><strong>Kalorie:</strong></label>
-          {{ currProduct.calories }}
-        </div>
-  
-        <a class="badge badge-warning" routerLink="/products/{{ currProduct.name }}">
-          Edit
-        </a>
-      </div>
-  
-      <div *ngIf="!currProduct">
-        <br />
-        <p>Please click on a Tutorial...</p>
-      </div>
-    </div>
-  </div>
+</div>
