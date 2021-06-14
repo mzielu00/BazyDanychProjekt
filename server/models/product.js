@@ -43,11 +43,14 @@ function addProduct(name, category, calories, proteins, carbohydrates, fats) {
 }
 //addProduct("jajeczniczka", "obiadek", 4312, 43, 32, 2);
 
-function deleteProduct(prodName)
-{
-    Product.deleteOne({name: prodName}, function (err) {
-        if(err) console.log(err);
-        console.log("Successful deletion");
+function deleteProduct(prodName) {
+    console.log(prodName);
+    Product.deleteOne({ name: prodName }, function (err, result) {
+        if (err) {
+            console.error(err);
+        } else {
+            console.log(result);
+        }
     });
 }
 

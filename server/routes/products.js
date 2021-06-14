@@ -36,7 +36,8 @@ router.get("/:name", (req, res) => {
 });
 
 router.delete("/:name", (req, res) => {
-    console.log("halo");
-    deleteProduct(req.body.name);
+    console.log(req.params.name);
+    deleteProduct(req.params.name);
 });
+
 module.exports = router;

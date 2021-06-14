@@ -69,7 +69,7 @@ export class ProductListComponent implements OnInit {
       }
     );
   }
-  
+
   deleteProduct(name: any): void {
     this.productService.deleteProduct(name).subscribe(
       (response) => {
@@ -80,6 +80,7 @@ export class ProductListComponent implements OnInit {
         console.log(err);
       }
     );
+    window.location.reload();
   }
   findProduct(): void {
     this.productService.findProductByName(this.name).subscribe(
@@ -124,19 +125,15 @@ export class ProductListComponent implements OnInit {
   }
 
   addProductToSet(currProduct): void {
-
     this.productSet.push(currProduct);
-
   }
 
   resetCounters(): void {
-
-    console.log("im in resetCounters");
+    console.log('im in resetCounters');
 
     this.caloriesCounter = 0;
     this.proteinsCounter = 0;
     this.carbohydratesCounter = 0;
     this.fatsCounter = 0;
   }
-
 }
