@@ -37,7 +37,7 @@
           <p class="card-text">węglowodany: {{ currProduct.carbohydrates }}</p>
 
           <div style="display: flex; gap: 5px">
-            <a class="btn btn-danger">Usuń z listy</a>
+            <a class="btn btn-danger" (click)="deleteProduct(currProduct)">Usuń z listy</a>
             <a (click)="addProductToCalc(currProduct)" class="btn btn-success">Dodaj do kalkulatora</a>
             <a class="btn btn-info">Dodaj do Setu</a>
           </div>

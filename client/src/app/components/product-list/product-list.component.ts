@@ -69,6 +69,7 @@ export class ProductListComponent implements OnInit {
       }
     );
   }
+  
   deleteProduct(name: any): void {
     this.productService.deleteProduct(name).subscribe(
       (response) => {

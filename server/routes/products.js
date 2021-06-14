@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const { Product, addProduct } = require("../models/product");
+const { Product, addProduct, deleteProduct } = require("../models/product");
 
 router.get("/", (req, res) => {
     console.log;
@@ -35,4 +35,8 @@ router.get("/:name", (req, res) => {
     });
 });
 
+router.delete("/:name", (req, res) => {
+    console.log("halo");
+    deleteProduct(req.body.name);
+});
 module.exports = router;
