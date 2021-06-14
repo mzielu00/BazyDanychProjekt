@@ -9,15 +9,7 @@ router.get("/", (req, res) => {
     console.log("auth works");
 });
 
-router.post(
-    "/signup",
-    (req, res, next) => {
-        console.log(req.body.username);
-        next();
-    },
-    checkDuplicateUsername,
-    signup
-);
+router.post("/signup", checkDuplicateUsername, signup);
 
 router.post("/signin", signin);
 

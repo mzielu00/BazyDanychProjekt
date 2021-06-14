@@ -11,16 +11,19 @@
         <ul class="navbar-nav">
 
             <li class="nav-item active">
-                <a class="nav-link" routerLink="login"  routerLinkActive="active">Logowanie</a>
+                <a class="nav-link" routerLink="login" routerLinkActive="active">Logowanie</a>
             </li>
 
             <li class="nav-item">
-                <a class="nav-link" routerLink="products"  routerLinkActive="active">Produkty</a>
+                <a class="nav-link" routerLink="products" routerLinkActive="active">Produkty</a>
             </li>
 
             <li class="nav-item">
-                <a class="nav-link" routerLink="add"  routerLinkActive="active">Dodaj produkt</a>
+                <a class="nav-link" routerLink="add" routerLinkActive="active">Dodaj produkt</a>
             </li>
+
+            <a href="/login" style="position:absolute; right: 10px" name="logout" id="logout" class="btn btn-danger"
+                role="button" (click)="logout()">Wyloguj się</a>
 
         </ul>
 
