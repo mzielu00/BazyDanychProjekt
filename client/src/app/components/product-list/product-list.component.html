@@ -56,7 +56,7 @@
   
   <br>
 
-  <div style="padding-left: 10px;" class="col-md-6">
+  <div style="float: left;" class="col-md-6">
                          
     <div *ngIf="currProduct">
 
@@ -74,11 +74,11 @@
           <p class="card-text">tłuszcze: {{ currProduct.fats }}</p>
           <p class="card-text">węglowodany: {{ currProduct.carbohydrates }}</p>
           <br>
-          <a href="#" class="btn btn-danger">Usuń z listy</a>
+          <a class="btn btn-danger">Usuń z listy</a>
           <br><br>
-          <a href="#" (click)="addProductToCalc(currProduct)" class="btn btn-success">Dodaj do kalkulatora</a>
+          <a (click)="addProductToCalc(currProduct)" class="btn btn-success">Dodaj do kalkulatora</a>
           <br><br>
-          <a href="#" class="btn btn-info">Dodaj do Setu</a>
+          <a class="btn btn-info">Dodaj do Setu</a>
 
         </div>
         
@@ -87,7 +87,7 @@
     </div>    
   
   </div>
-  <div style="padding-left: 10px;" class="col-md-6">
+  <div style=" position:absolute; margin-left: 300px;" class="col-md-6">
                          
     <div *ngIf="currProduct">
 
@@ -100,9 +100,9 @@
           <h5 class="card-title">Produkt: {{ currProduct.name }}</h5>
           <br>
           <p class="card-text">suma kalorii: {{ caloriesCounter }}</p>
-          <p class="card-text">suma białka: {{ currProduct.proteins }}</p>
-          <p class="card-text">suma tłuszczów: {{ currProduct.fats }}</p>
-          <p class="card-text">suma węglowodanów: {{ currProduct.carbohydrates }}</p>
+          <p class="card-text">suma białka: {{ proteinsCounter }}</p>
+          <p class="card-text">suma tłuszczów: {{ fatsCounter }}</p>
+          <p class="card-text">suma węglowodanów: {{ carbohydratesCounter }}</p>
           <br>
 
         </div>
