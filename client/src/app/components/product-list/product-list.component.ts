@@ -6,7 +6,7 @@ import { NgModule } from '@angular/core';
 @Component({
   selector: 'app-product-list',
   templateUrl: './product-list.component.html',
-  styleUrls: ['./product-list.component.css']
+  styleUrls: ['./product-list.component.css'],
 })
 
 export class ProductListComponent implements OnInit {
@@ -57,7 +57,19 @@ export class ProductListComponent implements OnInit {
       }
     );
   }
+  deleteProduct(name: any): void {
+    this.productService.deleteProduct(name).subscribe(
+      response => {
+        console.log(response);
+        this.showProducts();
+      },
+      err => {
+        console.log(err);
+      }
+    );
+  }
   findProduct(): void {
+    console.log("nazwa ->",this.name);
     this.productService.findProductByName(this.name).subscribe(
       data => {
         this.products = data;

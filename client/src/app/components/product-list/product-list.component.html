@@ -14,8 +14,50 @@
     </div>
           <div class="col-md-6">
             <h4>Lista wyszukanych produktów</h4>
-            <app-product-details *ngFor = "let product of products; let i = index" [specProduct]="product">
-            </app-product-details>
+            <ul class="list-group">
+                <li
+                  class="list-group-item"
+                  *ngFor="let product of products; let i = index"
+                  [class.active]="i == currentIdx"
+                  (click)="setProduct(product, i)"
+                >
+                  {{ product.name }}
+                </li>
+              </ul>
+            </div>
+            <div class="col-md-6">
+              <div *ngIf="currProduct">
+                <h4>Produkt</h4>
+                <div>
+                  <label><strong>Nazwa:</strong></label> {{ currProduct.name }}
+                </div>
+                <div>
+                  <label><strong>Kalorie:</strong></label> {{ currProduct.calories }}
+                </div>
+                <div>
+                    <label><strong>Kategoria:</strong></label> {{ currProduct.category }}
+                </div>
+                <div>
+                    <label><strong>Proteiny:</strong></label> {{ currProduct.proteins }}
+                </div>
+                <div>
+                    <label><strong>Tłuszcze:</strong></label> {{ currProduct.fats }}
+                </div>
+                <div>
+                    <label><strong>Węglowodany:</strong></label> {{ currProduct.carbohydrates }}
+                </div>
+                <button class="m-3 btn btn-sm btn-danger" (click)="deleteProduct(name)">
+                    Usuń produkt
+                  </button>
+          
+                <a class="badge badge-warning" routerLink="/products/{{ currProduct.name }}">
+                  Edit
+                </a>
+              </div>
+          
+              <div *ngIf="!currProduct">
+                <br />
+                <p>Please click on a Tutorial...</p>
+              </div>
+            </div>
           </div>
-    </div>
-</div>
