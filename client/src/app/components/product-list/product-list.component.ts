@@ -11,6 +11,7 @@ import { Product } from 'src/app/Product';
   styleUrls: ['./product-list.component.css'],
 })
 export class ProductListComponent implements OnInit {
+  setFlag = false;
   products: any;
   productList: Array<Product>;
   productSet: Array<Product>;
@@ -126,14 +127,24 @@ export class ProductListComponent implements OnInit {
 
   addProductToSet(currProduct): void {
     this.productSet.push(currProduct);
+    this.setFlag = true;
+  }
+
+  saveSet(): void {}
+
+  deleteSet(): void {
+    var counter = this.productSet.length;
+    for (let i = 0; i < counter; i++) this.productSet.pop();
+    this.setFlag = false;
   }
 
   resetCounters(): void {
     console.log('im in resetCounters');
 
-    this.caloriesCounter = 0;
-    this.proteinsCounter = 0;
-    this.carbohydratesCounter = 0;
-    this.fatsCounter = 0;
+    var counter = this.productList.length;
+
+    for (let i = 0; i < counter; i++) this.productList.pop();
+
+    this.updateCounters();
   }
 }

@@ -39,13 +39,12 @@
           <div style="display: flex; gap: 5px">
             <a class="btn btn-danger" (click)="deleteProduct(currProduct)">Usuń z listy</a>
             <a (click)="addProductToCalc(currProduct)" class="btn btn-success">Dodaj do kalkulatora</a>
-            <a class="btn btn-info">Dodaj do Setu</a>
+            <a (click)="addProductToSet(currProduct)" class="btn btn-info">Dodaj do Setu</a>
           </div>
         </div>
       </div>
     </div>
   </div>
-
 
   <div style="display: flex; justify-content: space-around;">
     <div class="">
@@ -59,6 +58,21 @@
         <input type="text" class="form-control" placeholder="Według kategorii" style="width: 300px;"
           [(ngModel)]="categoryTerm" />
       </div>
+    </div>
+
+    <div class="col-md-2">
+      <h5>Tworzenie setu</h5>
+      <ul class="list-group">
+        <li class="list-group-item"
+          *ngFor="let product of productSet"
+        >
+          {{ product.name }}
+        </li>
+      </ul>
+      <br><br>
+      <a *ngIf="setFlag" (click)="saveSet()" class="btn btn-success"> Zapisz Set </a>
+      <a *ngIf="setFlag" (click)="deleteSet()" class="btn btn-danger"> Wyczyść Set </a>
+
     </div>
 
     <div class="col-md-6">
