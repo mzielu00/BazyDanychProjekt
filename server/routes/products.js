@@ -1,7 +1,8 @@
 const router = require("express").Router();
 const { Product, addProduct } = require("../models/product");
 
-router.get("/products", (req, res) => {
+router.get("/", (req, res) => {
+    console.log;
     Product.find({}, (err, products) => {
         if (err) {
             console.error(err);
@@ -12,7 +13,7 @@ router.get("/products", (req, res) => {
     });
 });
 
-router.post("/products", (req, res) => {
+router.post("/", (req, res) => {
     addProduct(
         req.body.name,
         req.body.category,
@@ -23,7 +24,7 @@ router.post("/products", (req, res) => {
     );
 });
 
-router.get("/products/:name", (req, res) => {
+router.get("/:name", (req, res) => {
     Product.find({ name: req.params.name }, (err, products) => {
         if (err) {
             console.error(err);
