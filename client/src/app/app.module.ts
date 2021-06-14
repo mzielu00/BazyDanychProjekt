@@ -8,11 +8,13 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ProductService } from './services/product.service';
 import { AddProductComponent } from './components/add-product/add-product.component';
+import { LoginComponentComponent } from './components/login-component/login-component.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    AddProductComponent
+    AddProductComponent,
+    LoginComponentComponent
   ],
 
   imports: [
