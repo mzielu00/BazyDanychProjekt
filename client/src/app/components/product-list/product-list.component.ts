@@ -13,6 +13,7 @@ import { Product } from 'src/app/Product';
 export class ProductListComponent implements OnInit {
   products: any;
   productList: Array<Product>;
+  productSet: Array<Product>;
   dataSource: any;
   currProduct: Product;
   currentIdx = -1;
@@ -30,6 +31,7 @@ export class ProductListComponent implements OnInit {
   ngOnInit(): void {
     this.showProducts();
     this.productList = new Array();
+    this.productSet = new Array();
   }
 
   showProducts(): void {
@@ -119,4 +121,11 @@ export class ProductListComponent implements OnInit {
     }
     this.updateCounters();
   }
+
+  addProductToSet(currProduct): void {
+
+    this.productSet.push(currProduct);
+
+  }
+  
 }
