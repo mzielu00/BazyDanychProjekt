@@ -16,7 +16,7 @@ export class ProductListComponent implements OnInit {
   products: any;
   productList: Array<Product>;
   dataSource: any;
-  currProduct = null;
+  currProduct: Product;
   currentIdx = -1;
   name = '';
   caloriesCounter: any = 0;
@@ -31,7 +31,7 @@ export class ProductListComponent implements OnInit {
 
   ngOnInit(): void {
     this.showProducts();
-    this.productList = null;
+    this.productList = new Array();
   }
 
   showProducts(): void{
@@ -56,7 +56,6 @@ export class ProductListComponent implements OnInit {
   setProduct(product: any, idx: number): void{
     this.currProduct = product;
     this.currentIdx = idx;
-    this.productList.push(product);
     this.updateCounters();
   }
 
@@ -93,13 +92,28 @@ export class ProductListComponent implements OnInit {
       }
     );
   }
-  updateCounters(): void{
-    for(var p of this.productList)
-    {
+
+  updateCounters(): void {
+
+    this.caloriesCounter = 0;
+    this.proteinsCounter = 0;
+    this.carbogydratesCounter = 0;
+    this.fatsCounter = 0;
+
+    for(var p of this.productList) {
+      
       this.caloriesCounter += p.calories;
       this.proteinsCounter += p.proteins;
       this.carbogydratesCounter += p.carbohydrates;
       this.fatsCounter += p.fats;
     }
+  }
+
+  addProductToCalc(currProduct): void {
+    this.productList.push(currProduct);
+    
+    console.log("im in addProductToCalc");
+    
+    this.updateCounters();
   }
 }
