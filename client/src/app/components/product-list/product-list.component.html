@@ -55,7 +55,7 @@
           <p class="card-text">tłuszcze: {{ currProduct.fats }}</p>
           <p class="card-text">węglowodany: {{ currProduct.carbohydrates }}</p>
           <br>
-          <a class="btn btn-danger">Usuń z listy</a>
+          <a class="btn btn-danger" (click)="deleteProduct(currProduct)">Usuń z listy</a>
           <br><br>
           <a (click)="addProductToCalc(currProduct)" class="btn btn-success">Dodaj do kalkulatora</a>
           <br><br>

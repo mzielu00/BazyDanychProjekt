@@ -43,4 +43,12 @@ function addProduct(name, category, calories, proteins, carbohydrates, fats) {
 }
 //addProduct("jajeczniczka", "obiadek", 4312, 43, 32, 2);
 
-module.exports = { Product, loadProduct, addProduct };
+function deleteProduct(prodName)
+{
+    Product.deleteOne({name: prodName}, function (err) {
+        if(err) console.log(err);
+        console.log("Successful deletion");
+    });
+}
+
+module.exports = { Product, loadProduct, addProduct, deleteProduct };
