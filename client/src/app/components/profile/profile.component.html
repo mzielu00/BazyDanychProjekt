@@ -9,12 +9,27 @@
         {{ currentUser.accessToken.substring(0, 20) }} ...
         {{ currentUser.accessToken.substr(currentUser.accessToken.length - 20) }}
     </p>
-    <strong>Zestawy:</strong>
+    
+    <!-- <strong>Zestawy:</strong>
     <ul>
         <li *ngFor="let set of userProducts">
             {{ set.name + ": " + set.calories + "kcal" }}
         </li>
-    </ul>
+    </ul> -->
+    <br>
+
+    <div class="col-md-4">
+
+        <h3>Moje zestawy:</h3>
+        <br>
+        <ul class="list-group">
+          <li *ngFor="let set of userProducts" class="list-group-item">
+            {{ set.name + ": " + set.calories + "kcal" }}
+          </li>
+        </ul>
+
+    </div>
+
 </div>
 
 <ng-template #loggedOut>
