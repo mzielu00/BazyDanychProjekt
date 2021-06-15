@@ -35,6 +35,7 @@ export class AddProductComponent implements OnInit {
   }
 
   saveProduct(): void {
+    this.submitted = true;
     const data = {
       name: this.product.name,
       category: this.product.category,
@@ -47,7 +48,7 @@ export class AddProductComponent implements OnInit {
     this.productService.addProduct(data).subscribe(
       (response) => {
         console.log(response);
-        this.submitted = true;
+       
       },
       (err) => {
         console.log(err);

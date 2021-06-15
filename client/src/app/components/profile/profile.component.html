@@ -1,10 +1,12 @@
 <div class="container" *ngIf="currentUser; else loggedOut">
     <header class="jumbotron">
+        <br>
         <h3>
             <strong>{{ currentUser.username }}</strong> profile
         </h3>
     </header>
     <p>
+        <br>
         <strong>Token:</strong>
         {{ currentUser.accessToken.substring(0, 20) }} ...
         {{ currentUser.accessToken.substr(currentUser.accessToken.length - 20) }}

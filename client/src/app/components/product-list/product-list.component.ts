@@ -23,6 +23,7 @@ export class ProductListComponent implements OnInit {
     products: '',
   };
 
+  submitted = false;
   setFlag = false;
   products: any;
   productList: Array<Product>;
@@ -161,6 +162,7 @@ export class ProductListComponent implements OnInit {
   /// sets functions
 
   saveSet(): void {
+    this.submitted = true;
     const data = {
       name: this.setName,
       category: 'set',
@@ -181,6 +183,20 @@ export class ProductListComponent implements OnInit {
         console.log(err);
       }
     );
+  }
+
+  newSet(): void {
+    this.submitted = false;
+    this.product = {
+      name: '',
+      category: '',
+      calories: '',
+      proteins: '',
+      carbohydrates: '',
+      fats: '',
+      isSet: '',
+      products: '',
+    };
   }
 
   updateSetCounters(): void {

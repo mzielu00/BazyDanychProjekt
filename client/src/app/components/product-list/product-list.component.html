@@ -59,14 +59,14 @@
           [(ngModel)]="categoryTerm" />
       </div>
     </div>
-
-    <div class="col-md-2">
+    <div [hidden]="submitted" class="col-md-2">
       <h5>Tworzenie setu</h5>
 
       <div class="form-group">
         <input type="text" class="form-control" placeholder="Wprowadź nazwę" style="width: 215px;"
           [(ngModel)]="setName" />
       </div>
+
 
       <br>
 
@@ -82,14 +82,17 @@
       <a *ngIf="setFlag" (click)="deleteSet()" class="btn btn-danger"> Wyczyść Set </a>
 
     </div>
-
+<div [hidden]="!submitted">
+    <h5>Dodano set</h5>
+    <button class="btn btn-success" (click)="newSet()">Dodaj nowy Set</button>
+</div>
     <div class="col-md-6">
       <h5>Znalezione produkty</h5>
       <ul class="list-group">
         <li class="list-group-item"
           *ngFor="let product of products | nameFilter:nameTerm | categoryFilter:categoryTerm; let i = index"
           [class.active]="i == currentIdx" (click)="setProduct(product, i)">
-          {{ product.name }}
+          {{ product.name || "bez nazwa" }}
         </li>
       </ul>
     </div>
