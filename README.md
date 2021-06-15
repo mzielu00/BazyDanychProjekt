@@ -6,7 +6,7 @@
 * Marcin Żurawel 
 
 ## Projekt: 
-**Aplikacja webowa** - kalkulator kalorii. Pozwala zalogowanemu użytkownikowi obliczyć dzienne spożycie kalorii. Użytkownik dodaje do tabeli spożyte w trakcie dnia produkty z dostępnej bazy produktów. Jest możliwość dodania produktów spoza dostepnej bazy. Aplikacja liczy sume kalorii z dodanych w danym dniu produktów.
+**Aplikacja webowa** - kalkulator kalorii (Cal-Calc). Pozwala zalogowanemu użytkownikowi obliczyć dzienne spożycie kalorii. Użytkownik dodaje do tabeli spożyte w trakcie dnia produkty z dostępnej bazy produktów. Jest możliwość dodania produktów spoza dostepnej bazy. Aplikacja liczy sume kalorii z dodanych w danym dniu produktów. Użytkownik może grupować produkty w zestawy które będzie miał przypisane do swojego profilu, co ułatwi podliczanie kolorii posługując się zestawem zamiast pojedynczymi produktami.
 
 ## Technologie: 
 * MongoDB
@@ -16,3 +16,45 @@
 
 ## Schemat bazy danych
 ![schemat](https://user-images.githubusercontent.com/72752781/121600266-7ede0b00-ca44-11eb-9472-112032ee4628.png)
+
+## Funkcjonalność
+Po uruchomieniu aplikacji, użytkownikowi pokazuje się menu nawigacyjne wraz z panelem logowania (zdj 1) . Logowanie jest obligatoryjne, aby móc korzytsać z pałnej funkcjonalności aplikacji. Po udanym zalogowaniu/zarejestrowaniu użytkownik jest przenoszony do zakładki "Profil" (zdj 2), gdzie prezentowany jest widok jego zestawów. Dodatkowo może swobodnie poruszać się po panelu nawigacyjnym. Po wybraniu zakładki "Kalkulator" (zdj 3) pojawia się panel z listą produktów. Po kliknięciu na produkt są wyświetlane wartości odżywcze danego produktu (zdj 4). Ponadto jest możliwość dodania wybranego produktu do kalkulatora/zestawu/usunięcie produktu z bazy danych. Wraz z dodaniem produktów do klakulatora na biężąco aktualizuą się sumy wartości odżywczych (zdj 5). Przy tworzeniu zestawu należy go nazwać wpisując jego nazwę do opowiedniego pola (zdj 6). Dodakowo istnieje mechanizm wyszukiwania produktów oraz setów po nazwie/kategorii (zdj 7). Jeśli w bazie danych użytkownik nie może znalźć szukanego produktu, po kliknięciu w zakładkę "Dodaj produkt" może pożądany produkt dodać (zdj 9). Wpisując jego nazwę, kategorię oraz wartości odżywcze (Wprowazdane dane są poddane walidacjii).
+
+## Uruchamianie aplikacji
+Aby uruchomić aplikację należy:
+1) **Postawić serwer** - aby postawić serwer należy znajdować się w katalogu server (BazyDanychProjek -> server) oraz wprowadzić polecenie **node server**.
+2) **Uruchomić frontend** - aby uruchomić frontend należy znajdować się w katalogu client (BazyDanychProjek -> client) oraz wprowadzić polecenie **npm start**
+3) **Otworzenie strony** - aby otworzyć aplikacj webową Cal-Calc należy w przeglądarce wpisać **localhost:4200**
+
+## Przykładowe widoki z aplikacji
+- zdj 1
+
+![zdj1](https://user-images.githubusercontent.com/72752781/122038676-26a56100-cdd6-11eb-9792-83f287995efe.PNG)
+
+- zdj 2
+
+![zdj2](https://user-images.githubusercontent.com/72752781/122038744-39b83100-cdd6-11eb-9caa-631e5d2d8b77.PNG)
+
+- zdj 3
+
+![zdj3](https://user-images.githubusercontent.com/72752781/122038838-4e94c480-cdd6-11eb-8e03-16755226c3ea.PNG)
+
+- zdj 4
+
+![zdj4](https://user-images.githubusercontent.com/72752781/122038855-548aa580-cdd6-11eb-8bde-c564ddb969dd.PNG)
+
+- zdj 5
+
+![zdj5](https://user-images.githubusercontent.com/72752781/122038870-59e7f000-cdd6-11eb-9a3b-863c47d06caa.PNG)
+
+- zdj 6
+
+![zdj6](https://user-images.githubusercontent.com/72752781/122038897-5f453a80-cdd6-11eb-9bb4-44ec6a8ce34f.PNG)
+
+- zdj 7
+
+![zdj7](https://user-images.githubusercontent.com/72752781/122038916-64a28500-cdd6-11eb-8d8b-1b7e3547ae40.PNG)
+
+- zdj 8
+
+![zdj8](https://user-images.githubusercontent.com/72752781/122038924-69ffcf80-cdd6-11eb-93a6-e8b33cdcd220.PNG)
