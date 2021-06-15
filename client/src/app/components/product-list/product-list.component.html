@@ -87,12 +87,12 @@
     <button class="btn btn-success" (click)="newSet()">Dodaj nowy Set</button>
 </div>
     <div class="col-md-6">
-      <h5>Znalezione produkty</h5>
+      <h5>Produkty/Zestawy</h5>
       <ul class="list-group">
         <li class="list-group-item"
           *ngFor="let product of products | nameFilter:nameTerm | categoryFilter:categoryTerm; let i = index"
           [class.active]="i == currentIdx" (click)="setProduct(product, i)">
-          {{ product.name || "bez nazwa" }}
+          {{ product.name || "bez nazwy" }}
         </li>
       </ul>
     </div>
