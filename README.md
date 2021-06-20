@@ -15,7 +15,7 @@
 * Node.js
 
 ## Schemat bazy danych
-![schemat](https://user-images.githubusercontent.com/72752781/121600266-7ede0b00-ca44-11eb-9472-112032ee4628.png)
+UZUPEŁNIĆ
 
 ## Funkcjonalność
 Po uruchomieniu aplikacji, użytkownikowi pokazuje się menu nawigacyjne wraz z panelem logowania (zdj 1) . Logowanie jest obligatoryjne, aby móc korzytsać z pałnej funkcjonalności aplikacji. Po udanym zalogowaniu/zarejestrowaniu użytkownik jest przenoszony do zakładki "Profil" (zdj 2), gdzie prezentowany jest widok jego zestawów. Dodatkowo może swobodnie poruszać się po panelu nawigacyjnym. Po wybraniu zakładki "Kalkulator" (zdj 3) pojawia się panel z listą produktów. Po kliknięciu na produkt są wyświetlane wartości odżywcze danego produktu (zdj 4). Ponadto jest możliwość dodania wybranego produktu do kalkulatora/zestawu/usunięcie produktu z bazy danych. Wraz z dodaniem produktów do klakulatora na biężąco aktualizuą się sumy wartości odżywczych (zdj 5). Przy tworzeniu zestawu należy go nazwać wpisując jego nazwę do opowiedniego pola (zdj 6). Dodakowo istnieje mechanizm wyszukiwania produktów oraz setów po nazwie/kategorii (zdj 7). Jeśli w bazie danych użytkownik nie może znalźć szukanego produktu, po kliknięciu w zakładkę "Dodaj produkt" może pożądany produkt dodać (zdj 9). Wpisując jego nazwę, kategorię oraz wartości odżywcze (Wprowazdane dane są poddane walidacjii).
