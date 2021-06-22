@@ -44,6 +44,8 @@ Przykładowe struktury elementów z kolekcji:
 ![bazyjson2](https://user-images.githubusercontent.com/72752781/122911500-a774d780-d357-11eb-8316-2517ac60f720.PNG)
 
 ## API
+Po uruchomieniu serwera zapytania API pozwalają na odczyt i manipulację danymi przechowanymi w bazie danych.
+Serwer został napisany korzystając z frameworków Node.js oraz Express.js. Potrzebne do funkcjonowania aplikacji ścieżki zajmują się w folderze `server\routes`
 | Akcja | Zapytanie | URL | Serwer |
 ------- | --------- | --- | ------ |
 | Dodanie produktu do kolekcji | POST | http://localhost:4200/add | ![options](https://user-images.githubusercontent.com/72752781/122917687-92e80d80-d35e-11eb-9d37-bbf5a81774c3.PNG) |
