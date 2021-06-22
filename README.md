@@ -14,19 +14,46 @@
 * Express.js
 * Node.js
 
-## Schemat bazy danych
-opisac te zdj:
-![bazydanych1](https://user-images.githubusercontent.com/72752781/122911385-87ddaf00-d357-11eb-8139-d6f25d83ca12.PNG)
+## Bazy danych
+Z uwagi na problemy implementacyjne zdecydowaliśmy się ograniczyć ilość kolekcji do dwóch. Dzięki utożsamieniu zestawów z produktami (z punktu widzenia bazy jest to ten sam obiekt)  zmniejszyła się liczba tabel, uzyskaliśmy lepszą funkcjonalność i przejrzystrzy kod aplikacjii. 
+
+### Struktura bazy danych MongoDB
+
+Baza danych składa się z dwóch kolekcji:
+* product - zawiera informację odnośnie produktów 
 
 ![bazydanych2](https://user-images.githubusercontent.com/72752781/122911431-95933480-d357-11eb-8a21-f4fbcfb0386c.PNG)
 
+* user - zawiera informacje odnośnie użytkowników
+
+![bazydanych1](https://user-images.githubusercontent.com/72752781/122911385-87ddaf00-d357-11eb-8139-d6f25d83ca12.PNG)
+
+Przykładowe struktury elementów z kolekcji:
+* Produkt, który nie jest zestawem (pole isSet = false)
+
 ![bazyjson1](https://user-images.githubusercontent.com/72752781/122911463-9f1c9c80-d357-11eb-812b-178e778b6763.PNG)
 
+
+* Produkt, który jest zestawem (pole isSet = true)
+
+![zestaw](https://user-images.githubusercontent.com/72752781/122914664-2ae3f800-d35b-11eb-8743-88d6cdac85e9.PNG)
+
+
+* Użytkownik
+
 ![bazyjson2](https://user-images.githubusercontent.com/72752781/122911500-a774d780-d357-11eb-8316-2517ac60f720.PNG)
-UZUPEŁNIĆ
+
+## API
+| Akcja | Zapytanie | URL | Serwer |
+------- | --------- | --- | ------ |
+| Dodanie produktu do kolekcji | POST | http://localhost:4200/add | ![options](https://user-images.githubusercontent.com/72752781/122917687-92e80d80-d35e-11eb-9d37-bbf5a81774c3.PNG) |
+| Wyświetlenie wszystkich produktów | GET | http://localhost:4200/products | ![get](https://user-images.githubusercontent.com/72752781/122917158-fb82ba80-d35d-11eb-9d62-b102ac500121.PNG) |
+| Wyświetlenie danego produktu | GET | http://localhost:4200/products/:name | ![get](https://user-images.githubusercontent.com/72752781/122917158-fb82ba80-d35d-11eb-9d62-b102ac500121.PNG) |
+| Usunięcie danego produktu | DELETE | http://localhost:4200/products/:name | ![delete](https://user-images.githubusercontent.com/72752781/122917729-a09d9300-d35e-11eb-96d9-617a54e5f643.PNG) |
+| Logowanie użytkownika | POST | http://localhost:4200/user | ![post](https://user-images.githubusercontent.com/72752781/122917831-bd39cb00-d35e-11eb-8b3a-a40f79d0c47e.PNG) |
 
 ## Funkcjonalność
-Po uruchomieniu aplikacji, użytkownikowi pokazuje się menu nawigacyjne wraz z panelem logowania (zdj 1) . Logowanie jest obligatoryjne, aby móc korzytsać z pałnej funkcjonalności aplikacji. Po udanym zalogowaniu/zarejestrowaniu użytkownik jest przenoszony do zakładki "Profil" (zdj 2), gdzie prezentowany jest widok jego zestawów. Dodatkowo może swobodnie poruszać się po panelu nawigacyjnym. Po wybraniu zakładki "Kalkulator" (zdj 3) pojawia się panel z listą produktów. Po kliknięciu na produkt są wyświetlane wartości odżywcze danego produktu (zdj 4). Ponadto jest możliwość dodania wybranego produktu do kalkulatora/zestawu/usunięcie produktu z bazy danych. Wraz z dodaniem produktów do klakulatora na biężąco aktualizuą się sumy wartości odżywczych (zdj 5). Przy tworzeniu zestawu należy go nazwać wpisując jego nazwę do opowiedniego pola (zdj 6). Dodakowo istnieje mechanizm wyszukiwania produktów oraz setów po nazwie/kategorii (zdj 7). Jeśli w bazie danych użytkownik nie może znalźć szukanego produktu, po kliknięciu w zakładkę "Dodaj produkt" może pożądany produkt dodać (zdj 9). Wpisując jego nazwę, kategorię oraz wartości odżywcze (Wprowazdane dane są poddane walidacjii).
+Po uruchomieniu aplikacji, użytkownikowi pokazuje się menu nawigacyjne wraz z panelem logowania (zdj 1) . Logowanie jest obligatoryjne, aby móc korzytsać z pałnej funkcjonalności aplikacji. Po udanym zalogowaniu/zarejestrowaniu użytkownik jest przenoszony do zakładki "Profil" (zdj 2), gdzie prezentowany jest widok jego zestawów. Dodatkowo może swobodnie poruszać się po panelu nawigacyjnym. Po wybraniu zakładki "Kalkulator" (zdj 3) pojawia się panel z listą produktów. Po kliknięciu na produkt są wyświetlane wartości odżywcze danego produktu (zdj 4). Ponadto jest możliwość dodania wybranego produktu do kalkulatora/zestawu/usunięcie produktu z bazy danych. Wraz z dodaniem produktów do klakulatora na biężąco aktualizuą się sumy wartości odżywczych (zdj 5). Przy tworzeniu zestawu należy go nazwać wpisując jego nazwę do opowiedniego pola (zdj 6). Dodakowo istnieje mechanizm wyszukiwania produktów oraz setów po nazwie (zdj 7) kategorii (zdj 8). Jeśli w bazie danych użytkownik nie może znalźć szukanego produktu, po kliknięciu w zakładkę "Dodaj produkt" może pożądany produkt dodać (zdj 9). Wpisując jego nazwę, kategorię oraz wartości odżywcze (Wprowazdane dane są poddane walidacjii).
 
 ## Uruchamianie aplikacji
 Aby uruchomić aplikację należy:
@@ -64,5 +91,9 @@ Aby uruchomić aplikację należy:
 ![zdj7](https://user-images.githubusercontent.com/72752781/122038916-64a28500-cdd6-11eb-8d8b-1b7e3547ae40.PNG)
 
 - zdj 8
+
+![sety](https://user-images.githubusercontent.com/72752781/122915086-a5147c80-d35b-11eb-866f-8a249d24fe34.PNG)
+
+- zdj 9
 
 ![zdj8](https://user-images.githubusercontent.com/72752781/122038924-69ffcf80-cdd6-11eb-93a6-e8b33cdcd220.PNG)
