@@ -15,6 +15,14 @@
 * Node.js
 
 ## Schemat bazy danych
+opisac te zdj:
+![bazydanych1](https://user-images.githubusercontent.com/72752781/122911385-87ddaf00-d357-11eb-8139-d6f25d83ca12.PNG)
+
+![bazydanych2](https://user-images.githubusercontent.com/72752781/122911431-95933480-d357-11eb-8a21-f4fbcfb0386c.PNG)
+
+![bazyjson1](https://user-images.githubusercontent.com/72752781/122911463-9f1c9c80-d357-11eb-812b-178e778b6763.PNG)
+
+![bazyjson2](https://user-images.githubusercontent.com/72752781/122911500-a774d780-d357-11eb-8316-2517ac60f720.PNG)
 UZUPEŁNIĆ
 
 ## Funkcjonalność
