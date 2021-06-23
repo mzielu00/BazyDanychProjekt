@@ -15,7 +15,7 @@
 * Node.js
 
 ## Bazy danych
-Z uwagi na problemy implementacyjne zdecydowaliśmy się ograniczyć ilość kolekcji do dwóch. Dzięki utożsamieniu zestawów z produktami (z punktu widzenia bazy jest to ten sam obiekt)  zmniejszyła się liczba tabel, uzyskaliśmy lepszą funkcjonalność i przejrzystrzy kod aplikacjii. 
+Z uwagi na problemy implementacyjne zdecydowaliśmy się ograniczyć ilość kolekcji do dwóch. Dzięki utożsamieniu zestawów z produktami (z punktu widzenia bazy jest to ten sam obiekt)  zmniejszyła się liczba tabel, uzyskaliśmy lepszą funkcjonalność i bardziej przejrzysty kod aplikacji. 
 
 ### Struktura bazy danych MongoDB
 
@@ -45,7 +45,8 @@ Przykładowe struktury elementów z kolekcji:
 
 ## API
 Po uruchomieniu serwera zapytania API pozwalają na odczyt i manipulację danymi przechowanymi w bazie danych.
-Serwer został napisany korzystając z frameworków Node.js oraz Express.js. Potrzebne do funkcjonowania aplikacji ścieżki zajmują się w folderze `server\routes`
+Serwer został napisany korzystając z frameworków Node.js oraz Express.js. Potrzebne do funkcjonowania aplikacji ścieżki zajmują się w folderze `server\routes`. Są podzielone na plik `auth.js` - ścieżki potrzebne do autentykacji użytkownika oraz `products.js` - ścieżki do wykonywania operacji CRUD na produktach oraz setach produktów. Do modelowania oraz operowania na dokumentach bazy danych użyliśmy biblioteki Mongoose. Potrzebne do tego modele, schematy oraz funkcje są umieszczone w `server\models` (pliki `product.js` oraz `user.js`).
+
 | Akcja | Zapytanie | URL | Serwer |
 ------- | --------- | --- | ------ |
 | Dodanie produktu do kolekcji | POST | http://localhost:4200/add | ![options](https://user-images.githubusercontent.com/72752781/122917687-92e80d80-d35e-11eb-9d37-bbf5a81774c3.PNG) |
@@ -55,7 +56,7 @@ Serwer został napisany korzystając z frameworków Node.js oraz Express.js. Pot
 | Logowanie użytkownika | POST | http://localhost:4200/user | ![post](https://user-images.githubusercontent.com/72752781/122917831-bd39cb00-d35e-11eb-8b3a-a40f79d0c47e.PNG) |
 
 ## Funkcjonalność
-Po uruchomieniu aplikacji, użytkownikowi pokazuje się menu nawigacyjne wraz z panelem logowania (zdj 1) . Logowanie jest obligatoryjne, aby móc korzytsać z pałnej funkcjonalności aplikacji. Po udanym zalogowaniu/zarejestrowaniu użytkownik jest przenoszony do zakładki "Profil" (zdj 2), gdzie prezentowany jest widok jego zestawów. Dodatkowo może swobodnie poruszać się po panelu nawigacyjnym. Po wybraniu zakładki "Kalkulator" (zdj 3) pojawia się panel z listą produktów. Po kliknięciu na produkt są wyświetlane wartości odżywcze danego produktu (zdj 4). Ponadto jest możliwość dodania wybranego produktu do kalkulatora/zestawu/usunięcie produktu z bazy danych. Wraz z dodaniem produktów do klakulatora na biężąco aktualizuą się sumy wartości odżywczych (zdj 5). Przy tworzeniu zestawu należy go nazwać wpisując jego nazwę do opowiedniego pola (zdj 6). Dodakowo istnieje mechanizm wyszukiwania produktów oraz setów po nazwie (zdj 7) kategorii (zdj 8). Jeśli w bazie danych użytkownik nie może znalźć szukanego produktu, po kliknięciu w zakładkę "Dodaj produkt" może pożądany produkt dodać (zdj 9). Wpisując jego nazwę, kategorię oraz wartości odżywcze (Wprowazdane dane są poddane walidacjii).
+Po uruchomieniu aplikacji, użytkownikowi pokazuje się menu nawigacyjne wraz z panelem logowania (zdj 1) . Logowanie jest obligatoryjne, aby móc korzytsać z pałnej funkcjonalności aplikacji. Po udanym zalogowaniu/zarejestrowaniu użytkownik jest przenoszony do zakładki "Profil" (zdj 2), gdzie prezentowany jest widok jego zestawów. Dodatkowo może swobodnie poruszać się po panelu nawigacyjnym. Po wybraniu zakładki "Kalkulator" (zdj 3) pojawia się panel z listą produktów. Po kliknięciu na produkt są wyświetlane wartości odżywcze danego produktu (zdj 4). Ponadto jest możliwość dodania wybranego produktu do kalkulatora/zestawu/usunięcie produktu z bazy danych. Wraz z dodaniem produktów do klakulatora na biężąco aktualizuą się sumy wartości odżywczych (zdj 5). Przy tworzeniu zestawu należy go nazwać wpisując jego nazwę do opowiedniego pola (zdj 6). Dodakowo istnieje mechanizm wyszukiwania produktów oraz setów po nazwie (zdj 7) kategorii (zdj 8). Jeśli w bazie danych użytkownik nie może znalźć szukanego produktu, po kliknięciu w zakładkę "Dodaj produkt" może pożądany produkt dodać (zdj 9). Wpisując jego nazwę, kategorię oraz wartości odżywcze (Wprowadzane dane są poddane walidacji).
 
 ## Uruchamianie aplikacji
 Aby uruchomić aplikację należy:
