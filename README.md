@@ -20,7 +20,7 @@ Z uwagi na problemy implementacyjne zdecydowaliśmy się ograniczyć ilość kol
 ### Struktura bazy danych MongoDB
 
 Baza danych składa się z dwóch kolekcji:
-* product - zawiera informację odnośnie produktów 
+* product - zawiera informacje odnośnie produktów 
 
 ![bazydanych2](https://user-images.githubusercontent.com/72752781/122911431-95933480-d357-11eb-8a21-f4fbcfb0386c.PNG)
 
@@ -56,7 +56,7 @@ Serwer został napisany korzystając z frameworków Node.js oraz Express.js. Pot
 | Logowanie użytkownika | POST | http://localhost:4200/user | ![post](https://user-images.githubusercontent.com/72752781/122917831-bd39cb00-d35e-11eb-8b3a-a40f79d0c47e.PNG) |
 
 ## Funkcjonalność
-Po uruchomieniu aplikacji, użytkownikowi pokazuje się menu nawigacyjne wraz z panelem logowania (zdj 1) . Logowanie jest obligatoryjne, aby móc korzytsać z pałnej funkcjonalności aplikacji. Po udanym zalogowaniu/zarejestrowaniu użytkownik jest przenoszony do zakładki "Profil" (zdj 2), gdzie prezentowany jest widok jego zestawów. Dodatkowo może swobodnie poruszać się po panelu nawigacyjnym. Po wybraniu zakładki "Kalkulator" (zdj 3) pojawia się panel z listą produktów. Po kliknięciu na produkt są wyświetlane wartości odżywcze danego produktu (zdj 4). Ponadto jest możliwość dodania wybranego produktu do kalkulatora/zestawu/usunięcie produktu z bazy danych. Wraz z dodaniem produktów do klakulatora na biężąco aktualizuą się sumy wartości odżywczych (zdj 5). Przy tworzeniu zestawu należy go nazwać wpisując jego nazwę do opowiedniego pola (zdj 6). Dodakowo istnieje mechanizm wyszukiwania produktów oraz setów po nazwie (zdj 7) kategorii (zdj 8). Jeśli w bazie danych użytkownik nie może znalźć szukanego produktu, po kliknięciu w zakładkę "Dodaj produkt" może pożądany produkt dodać (zdj 9). Wpisując jego nazwę, kategorię oraz wartości odżywcze (Wprowadzane dane są poddane walidacji).
+Po uruchomieniu aplikacji, użytkownikowi pokazuje się menu nawigacyjne wraz z panelem logowania (zdj 1) . Logowanie jest obligatoryjne, aby móc korzystać z pełnej funkcjonalności aplikacji. Po udanym zalogowaniu/zarejestrowaniu użytkownik jest przenoszony do zakładki "Profil" (zdj 2), gdzie prezentowany jest widok jego zestawów. Dodatkowo może swobodnie poruszać się po panelu nawigacyjnym. Po wybraniu zakładki "Kalkulator" (zdj 3) pojawia się panel z listą produktów. Po kliknięciu na produkt są wyświetlane wartości odżywcze danego produktu (zdj 4). Ponadto jest możliwość dodania wybranego produktu do kalkulatora/zestawu/usunięcie produktu z bazy danych. Wraz z dodaniem produktów do kalkulatora na bieżąco aktualizują się sumy wartości odżywczych (zdj 5). Przy tworzeniu zestawu należy go nazwać wpisując jego nazwę do opowiedniego pola (zdj 6). Dodatkowo istnieje mechanizm wyszukiwania produktów oraz setów po nazwie (zdj 7) kategorii (zdj 8). Jeśli w bazie danych użytkownik nie może znaleźć szukanego produktu, po kliknięciu w zakładkę "Dodaj produkt" może pożądany produkt dodać (zdj 9). Wpisując jego nazwę, kategorię oraz wartości odżywcze (Wprowadzane dane są poddane walidacji).
 
 ## Uruchamianie aplikacji
 Aby uruchomić aplikację należy:
